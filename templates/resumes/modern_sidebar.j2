@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }} - Lebenslauf</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="resume-container">
+    <!-- العمود الجانبي -->
+    <aside class="sidebar">
+        <div class="profile-photo">
+            <img src="{{ url_for('static', filename=profile_image) }}" alt="Profilbild">
+        </div>
+        <h1>{{ name }}</h1>
+        <h2>Lebenslauf</h2>
+
+        <div class="section">
+            <h3>Persönliche Infos</h3>
+            <ul>
+                <li>🇩🇪 {{ location }}</li>
+                <li>✉️ {{ email }}</li>
+                <li>🎂 {{ birthdate }}</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>Fähigkeiten</h3>
+            <ul>
+                {% for skill in skills %}
+                    <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </aside>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <section class="section">
+            <h3>Erfahrung</h3>
+
+            {% for job in experiences %}
+            <div class="job">
+                <h4>{{ job.title }}</h4>
+                <small>{{ job.company }} – {{ job.period }}</small>
+                <ul>
+                    {% for line in job.description %}
+                        <li>{{ line }}</li>
+                    {% endfor %}
+                </ul>
+                {% if job.link %}
+                    <p>🔗 <a href="{{ job.link }}">{{ job.link }}</a></p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+</div>
+
+</body>
+</html>

@@ -2,6 +2,11 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.code-workspace
+*.exe
+*.dll
+*.log
+*.tmp
 
 # C extensions
 *.so

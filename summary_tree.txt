@@ -1,0 +1,12 @@
+📁 templates/
+├── 📁 static/
+│   └── 📁 css/
+│       └── style.css
+├── 📁 templates/
+│   └── 📁 resumes/
+│       └── modern_sidebar.j2
+├── .gitignore
+├── LICENSE
+├── README.md
+├── app.py
+└── requirements.txt
